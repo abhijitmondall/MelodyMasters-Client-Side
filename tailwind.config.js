@@ -2,7 +2,40 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        colorPrimary: "#81c5d8",
+        colorSecondary: "#6648a7",
+        colorTertiary: "#DC3136",
+
+        colorDark: "#282c34",
+
+        colorGreyDark1: "rgba(17, 17, 17, 0.6)",
+        colorGreyDark2: "#333",
+        colorGreyDark3: "#777",
+        colorGreyDark4: "#999",
+
+        colorGreyLight1: "#faf9f9",
+        colorGreyLight2: "#f4f2f2",
+        colorGreyLight3: "#f0eeee",
+        colorGreyLight4: "#ccc",
+      },
+
+      fontSize: {
+        textH1: "3.2rem",
+        textH2: "2.8rem",
+        textH3: "2.4rem",
+        textH4: "2.2rem",
+        textH5: "2rem",
+        textH6: "1.8rem",
+        textBody: "1.6rem",
+      },
+
+      borderRadius: {
+        radius: "0.8rem",
+        Radius1x: "2.5rem",
+      },
+    },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
 };
