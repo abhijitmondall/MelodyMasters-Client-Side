@@ -16,9 +16,11 @@ const DashboardLayout = () => {
             </div>
 
             <div className="grid w-full h-full g-cols-2x justify-items-center bg-colorGreyLight2 rounded-br-[2rem]">
-              <Outlet>
-                <Dashboard />
-              </Outlet>
+              <main>
+                <Outlet>
+                  <Dashboard />
+                </Outlet>
+              </main>
 
               <DashboardProfile />
             </div>
