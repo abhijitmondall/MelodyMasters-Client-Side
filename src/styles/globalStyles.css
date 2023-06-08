@@ -3,12 +3,17 @@
 @tailwind utilities;
 
 @layer base {
+  /* @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;400;600;800;900&display=swap"); */
+
+  @import url("https://fonts.googleapis.com/css2?family=Marcellus&display=swap");
+
   html {
     font-size: 62.5%;
   }
 
   body {
-    font-family: "Inter", sans-serif;
+    /* font-family: "Inter", sans-serif; */
+    font-family: "Marcellus", serif;
     color: rgba(17, 17, 17, 0.8);
     font-size: 1.6rem;
   }
@@ -44,18 +49,11 @@
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
   }
 
-  .bg-gradient: linear-gradient(
-    90deg,
-    rgba(126, 144, 254, 0.1) 0%,
-    rgba(152, 115, 255, 0.1) 100%
-  );
-}
-
-.btn-x {
-  font-size: 3rem;
-  font-weight: 500;
-  padding: 1rem;
-  border-radius: 0.8rem;
-  color: #f11a1a;
-  text-align: center;
+  .bg-gradient {
+    background: linear-gradient(
+      90deg,
+      rgba(126, 144, 254, 0.1) 0%,
+      rgba(152, 115, 255, 0.1) 100%
+    );
+  }
 }

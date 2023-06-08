@@ -94,7 +94,7 @@ const Header = () => {
           </figure>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 text-textBody">
+          <ul className="menu menu-horizontal px-1 text-textH6">
             {listItems()}
           </ul>
         </div>
@@ -104,7 +104,7 @@ const Header = () => {
               <img src="" />
             </div>
           </label>
-          <button className="btn btn-outline btn-accent text-textBody">
+          <button className="btn btn-outline btn-accent text-textH6">
             Login
           </button>
         </div>
