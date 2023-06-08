@@ -3,8 +3,11 @@ import Main from "../layouts/Main";
 import Home from "../pages/Home/Home";
 import Instructors from "../pages/Instructors/Instructors";
 import Classes from "../pages/Classes/Classes";
-import Dashboard from "../pages/Dashboard/Dashboard";
 import Login from "../pages/Login/Login";
+import DashboardLayout from "../layouts/DashboardLayout";
+import SelectedClasses from "../pages/Dashboard/Student/SelectedClasses";
+import EnrolledClasses from "../pages/Dashboard/Student/EnrolledClasses";
+import PaymentHistory from "../pages/Dashboard/Student/PaymentHistory";
 
 const router = createBrowserRouter([
   {
@@ -27,13 +30,29 @@ const router = createBrowserRouter([
       },
 
       {
-        path: "/dashboard",
-        element: <Dashboard />,
+        path: "/login",
+        element: <Login />,
+      },
+    ],
+  },
+
+  {
+    path: "/dashboard",
+    element: <DashboardLayout />,
+    children: [
+      {
+        path: "/dashboard/selectedClasses",
+        element: <SelectedClasses />,
       },
 
       {
-        path: "/login",
-        element: <Login />,
+        path: "/dashboard/enrolledClasses",
+        element: <EnrolledClasses />,
+      },
+
+      {
+        path: "/dashboard/paymentHistory",
+        element: <PaymentHistory />,
       },
     ],
   },

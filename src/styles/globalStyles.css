@@ -57,4 +57,21 @@
       rgba(152, 115, 255, 0.1) 100%
     );
   }
+
+  .g-cols-2 {
+    grid-template-columns: 1fr 5fr;
+  }
+
+  .g-cols-2x {
+    grid-template-columns: 4fr 1fr;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(to right bottom, #18b1a2, #624dd6);
+  border-radius: 10rem;
 }

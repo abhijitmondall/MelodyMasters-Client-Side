@@ -1,8 +1,10 @@
+import DashboardMain from "./DashboardMain";
+
 const Dashboard = () => {
   return (
-    <div>
-      <h1>Dashboard</h1>
-    </div>
+    <>
+      <DashboardMain />
+    </>
   );
 };
 

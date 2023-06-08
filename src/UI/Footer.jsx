@@ -49,7 +49,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="footer__text">
-            <p>@2023 FunMart Toys. All Rights Reserved</p>
+            <p>@ 2023 MelodyMasters. All Rights Reserved</p>
           </div>
         </section>
       </footer>
