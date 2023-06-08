@@ -13,9 +13,10 @@ const Footer = () => {
               </h3>
 
               <p>
-                Discover captivating toy cars that fuel imagination at FunMart
-                Toys! Explore our collection for endless playtime adventures.
-                Shop now and let the excitement begin!
+                MelodyMasters: Unlock Your Musical Potential. Discover, learn,
+                and grow with our comprehensive music education programs.
+                Unleash your creativity and become the musician you've always
+                wanted to be.
               </p>
             </div>
             <div className="footer__info">
