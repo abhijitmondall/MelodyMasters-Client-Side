@@ -48,7 +48,7 @@ const Header = () => {
   };
 
   return (
-    <>
+    <header>
       <div className="bg-colorSecondary p-[1rem] text-teal-50">
         <div className="container flex justify-between ">
           <div className="flex gap-10">
@@ -109,7 +109,7 @@ const Header = () => {
           </button>
         </div>
       </div>
-    </>
+    </header>
   );
 };
 

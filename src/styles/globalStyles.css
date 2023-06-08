@@ -16,6 +16,7 @@
     font-family: "Marcellus", serif;
     color: rgba(17, 17, 17, 0.8);
     font-size: 1.6rem;
+    /* background-color: #faf9f9; */
   }
 
   @media (max-width: 56em) {

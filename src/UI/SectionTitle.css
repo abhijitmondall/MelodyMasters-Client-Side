@@ -1,0 +1,31 @@
+.section__title-wrap {
+  position: relative;
+  margin-bottom: 1.6rem;
+}
+
+.section__line {
+  width: 70%;
+  height: 2px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9;
+  background: #18b1a2;
+}
+
+.section__title {
+  width: 30%;
+  font-size: 2.8rem;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  color: #18b1a2;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  overflow: hidden;
+}

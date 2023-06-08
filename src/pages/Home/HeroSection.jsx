@@ -10,8 +10,8 @@ import "./HeroSection.css";
 
 const HeroSection = () => {
   return (
-    <>
-      <section className="h-[57rem] container">
+    <section className="mb-[20rem]">
+      <div className="h-[57rem]">
         <Carousel>
           <div className="relative hero__slide">
             <img src={slide1} alt="" className="hero__img" />
@@ -76,8 +76,8 @@ const HeroSection = () => {
             </div>
           </div>
         </Carousel>
-      </section>
-    </>
+      </div>
+    </section>
   );
 };
 
