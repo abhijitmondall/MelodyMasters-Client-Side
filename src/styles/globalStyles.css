@@ -65,6 +65,15 @@
   .g-cols-2x {
     grid-template-columns: 4fr 1fr;
   }
+
+  .form input {
+    height: 4rem !important;
+  }
+
+  .form input,
+  .form label span {
+    font-size: 1.6rem !important;
+  }
 }
 
 ::-webkit-scrollbar {

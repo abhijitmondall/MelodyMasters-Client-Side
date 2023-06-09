@@ -1,5 +1,4 @@
 import { Outlet } from "react-router-dom";
-import Dashboard from "../pages/Dashboard/Dashboard";
 import DashboardMenu from "../pages/Dashboard/DashboardMenu";
 import DashboardProfile from "../pages/Dashboard/DashboardProfile";
 
@@ -17,9 +16,7 @@ const DashboardLayout = () => {
 
             <div className="grid w-full h-full g-cols-2x justify-items-center bg-colorGreyLight2 rounded-br-[2rem]">
               <main>
-                <Outlet>
-                  <Dashboard />
-                </Outlet>
+                <Outlet />
               </main>
 
               <DashboardProfile />

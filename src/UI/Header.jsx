@@ -5,7 +5,7 @@ import {
   FaInstagram,
 } from "react-icons/fa";
 import logo from "./../assets/MelodyMasters.gif";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
   const listItems = () => {
@@ -104,9 +104,9 @@ const Header = () => {
               <img src="" />
             </div>
           </label>
-          <button className="btn btn-outline btn-accent text-textH6">
+          <Link to="/login" className="btn btn-outline btn-accent text-textH6">
             Login
-          </button>
+          </Link>
         </div>
       </div>
     </header>

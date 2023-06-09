@@ -15,6 +15,17 @@ const DashboardMenu = () => {
 
         <li>
           <NavLink
+            to="/dashboard/"
+            className={({ isActive }) =>
+              isActive ? "text-colorPrimary" : "text-colorDark"
+            }
+          >
+            Dashboard
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink
             to="/dashboard/selectedClasses"
             className={({ isActive }) => (isActive ? "text-colorPrimary" : "")}
           >
