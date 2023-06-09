@@ -3,9 +3,9 @@ import Header from "../UI/Header";
 import Footer from "../UI/Footer";
 
 const Main = () => {
-  const location = useLocation();
-  const isPath =
-    "/login" === location.pathname || "/register" === location.pathname;
+  // const location = useLocation();
+  const isPath = false;
+  // "/login" === location.pathname || "/register" === location.pathname;
 
   return (
     <>
