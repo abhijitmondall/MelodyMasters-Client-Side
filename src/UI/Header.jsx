@@ -6,8 +6,19 @@ import {
 } from "react-icons/fa";
 import logo from "./../assets/MelodyMasters.gif";
 import { Link, NavLink } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
 
 const Header = () => {
+  const { user, logout } = useAuth();
+
+  const logoutHandler = () => {
+    try {
+      logout();
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const listItems = () => {
     return (
       <>
@@ -99,14 +110,34 @@ const Header = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <label className="btn btn-ghost btn-circle avatar">
-            <div className="w-10 rounded-full">
-              <img src="" />
+          {user && (
+            <div className="header__user-wrap flex items-center gap-3">
+              <img
+                title={user?.displayName || ""}
+                src={user.photoURL}
+                alt={user?.displayName || ""}
+                className="h-[5.5rem] rounded-[50%] object-cover"
+              />
+
+              <div>
+                <button
+                  onClick={logoutHandler}
+                  className="btn btn-outline btn-accent text-textH5 normal-case"
+                >
+                  Logout
+                </button>
+              </div>
             </div>
-          </label>
-          <Link to="/login" className="btn btn-outline btn-accent text-textH6">
-            Login
-          </Link>
+          )}
+
+          {!user && (
+            <Link
+              to="/login"
+              className="btn btn-outline btn-accent text-textH5 normal-case"
+            >
+              Login
+            </Link>
+          )}
         </div>
       </div>
     </header>

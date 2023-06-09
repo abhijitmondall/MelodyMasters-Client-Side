@@ -4,17 +4,18 @@ import Footer from "../UI/Footer";
 
 const Main = () => {
   const location = useLocation();
-  const isPathLogin = "/login" === location.pathname;
+  const isPath =
+    "/login" === location.pathname || "/register" === location.pathname;
 
   return (
     <>
-      {!isPathLogin && <Header />}
+      {!isPath && <Header />}
 
       <main>
         <Outlet />
       </main>
 
-      {!isPathLogin && <Footer />}
+      {!isPath && <Footer />}
 
       <ScrollRestoration />
     </>

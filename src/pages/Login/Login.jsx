@@ -1,31 +1,34 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { FcGoogle } from "react-icons/fc";
 import { IoMdLogIn } from "react-icons/io";
+import { useForm } from "react-hook-form";
 
 const Login = () => {
   const { user, login, error, setError, loginWithGoogle } = useAuth();
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+    reset,
+  } = useForm();
 
   const navigate = useNavigate();
   const location = useLocation();
 
   const path = location?.state?.from?.pathname || "/";
 
-  let isFail = null;
+  let isSuccess = null;
 
-  const handleLoginForm = async (e) => {
+  const onSubmit = async (data) => {
     try {
-      e.preventDefault();
-
-      const form = e.target;
-      const email = form.email.value;
-      const password = form.password.value;
-
-      await login(email, password);
+      await login(data.email, data.password);
       navigate(path, { replace: true });
-      form.reset();
+      reset();
     } catch (err) {
-      isFail = true;
+      isSuccess = false;
       setError(err.message);
     }
   };
@@ -52,14 +55,14 @@ const Login = () => {
               </span>
               Login now!
             </h1>
-            {isFail && <p className="text-warning"> {error}</p>}
           </div>
 
           <div className="card flex-shrink-0 w-full max-w-[50rem] shadow-2xl bg-base-100">
             <form
-              onSubmit={handleLoginForm}
+              onSubmit={handleSubmit(onSubmit)}
               className="card-body form flex gap-7 px-[3.2rem] py-[6rem]"
             >
+              <p className="text-red-600">{!isSuccess ? error : ""}</p>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -67,9 +70,14 @@ const Login = () => {
                 <input
                   type="text"
                   name="email"
+                  {...register("email", { required: true })}
                   placeholder="Email"
                   className="input input-bordered"
                 />
+
+                {errors.email && (
+                  <span className="text-red-600">Email is required</span>
+                )}
               </div>
               <div className="form-control">
                 <label className="label">
@@ -78,9 +86,15 @@ const Login = () => {
                 <input
                   type="password"
                   name="password"
+                  {...register("password", { required: true })}
                   placeholder="Password"
                   className="input input-bordered"
                 />
+
+                {errors.password && (
+                  <span className="text-red-600">Password is required</span>
+                )}
+
                 <label className="label">
                   <a
                     href="#"
@@ -97,8 +111,15 @@ const Login = () => {
                 >
                   Login
                 </button>
+                <div className="mt-[1rem]">
+                  Don't have an account?
+                  <span className="text-colorPrimary underline">
+                    <Link to="/register"> Register Now!</Link>
+                  </span>
+                </div>
               </div>
             </form>
+
             <p className="text-center p-y"> OR </p>
 
             <div className="px-[3.2rem] mt-10 mb-[6rem]">
