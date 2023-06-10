@@ -5,12 +5,16 @@ import { IoMdLogIn } from "react-icons/io";
 import { FaEyeSlash, FaEye } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
+import useAxiosFetch from "../../hooks/useAxiosFetch";
 
 const Login = () => {
   const { user, login, error, setError, loginWithGoogle } = useAuth();
+  const [isSuccess, setIsSuccess] = useState(true);
 
   const [inputType, setInputType] = useState("password");
   const [isHide, setIsHide] = useState(true);
+
+  const { axiosFetch } = useAxiosFetch();
 
   const {
     register,
@@ -23,14 +27,12 @@ const Login = () => {
 
   const path = location?.state?.from?.pathname || "/";
 
-  let isSuccess = null;
-
   const onSubmit = async (data) => {
     try {
       await login(data.email, data.password);
       navigate(path, { replace: true });
     } catch (err) {
-      isSuccess = false;
+      setIsSuccess(false);
       setError(err.message);
     }
   };
@@ -38,10 +40,18 @@ const Login = () => {
   const googleLogin = async () => {
     try {
       const res = await loginWithGoogle();
-      navigate(path, { replace: true });
 
+      // send request
+      await axiosFetch.post("users", {
+        name: res.user.displayName,
+        email: res.user.email,
+        photo: res.user.photoURL,
+      });
+
+      navigate(path, { replace: true });
       if (!res.ok) throw new Error(res.message);
     } catch (err) {
+      setIsSuccess(false);
       setError(err.message);
     }
   };

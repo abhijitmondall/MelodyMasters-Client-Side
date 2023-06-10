@@ -52,12 +52,12 @@ p.carousel-status {
 }
 
 .hero__content {
-  width: 30%;
+  max-width: 33rem;
   position: absolute;
   top: 20rem;
-  left: 26%;
-  -webkit-transform: translate(-26%, -20%) skewY(-7deg);
-  transform: translate(-26%, -20%) skewY(-7deg);
+  left: 50%;
+  -webkit-transform: translate(-160%, -20%) skewY(-7deg);
+  transform: translate(-160%, -20%) skewY(-7deg);
   color: #fff;
   text-align: center;
   backface-visibility: hidden;

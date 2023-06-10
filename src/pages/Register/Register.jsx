@@ -4,10 +4,20 @@ import { FcGoogle } from "react-icons/fc";
 import { IoMdLogIn } from "react-icons/io";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import useAxiosFetch from "../../hooks/useAxiosFetch";
 
 const Register = () => {
-  const { user, createUser, updateUserProfile, setError, loginWithGoogle } =
-    useAuth();
+  const {
+    user,
+    createUser,
+    updateUserProfile,
+    setError,
+    error,
+    loginWithGoogle,
+  } = useAuth();
+
+  const [isSuccess, setIsSuccess] = useState(true);
+  const { axiosFetch } = useAxiosFetch();
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -42,8 +52,16 @@ const Register = () => {
       await updateUserProfile(data.name, data.userPhoto);
       navigate(path, { replace: true });
       reset();
+
+      // send request
+      await axiosFetch.post("users", {
+        name: data.name,
+        email: data.email,
+        photo: data.userPhoto,
+      });
     } catch (err) {
       console.log(err);
+      setIsSuccess(false);
       setError(err.message);
     }
   };
@@ -52,9 +70,18 @@ const Register = () => {
     try {
       const res = await loginWithGoogle();
 
+      // send request
+      await axiosFetch.post("users", {
+        name: res.user.displayName,
+        email: res.user.email,
+        photo: res.user.photoURL,
+      });
+
       navigate(path, { replace: true });
+
       if (!res.ok) throw new Error(res.message);
     } catch (err) {
+      setIsSuccess(false);
       setError(err.message);
     }
   };
@@ -87,6 +114,7 @@ const Register = () => {
                 onSubmit={handleSubmit(onSubmit)}
                 className="card-body form flex gap-7 px-[3.2rem] py-[6rem]"
               >
+                <p className="text-red-600">{!isSuccess ? error : ""}</p>
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">Full Name</span>

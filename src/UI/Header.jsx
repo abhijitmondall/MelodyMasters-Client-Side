@@ -46,14 +46,18 @@ const Header = () => {
             Classes
           </NavLink>
         </li>
-        <li>
-          <NavLink
-            to="/dashboard"
-            className={({ isActive }) => (isActive ? "text-colorPrimary" : "")}
-          >
-            Dashboard
-          </NavLink>
-        </li>
+        {user && (
+          <li>
+            <NavLink
+              to="/dashboard"
+              className={({ isActive }) =>
+                isActive ? "text-colorPrimary" : ""
+              }
+            >
+              Dashboard
+            </NavLink>
+          </li>
+        )}
       </>
     );
   };
