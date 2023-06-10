@@ -3,7 +3,7 @@ import SectionTitle from "../../UI/SectionTitle";
 import useFetch from "../../hooks/useFetch";
 
 const PopularInstructors = () => {
-  const { data } = useFetch("users/top-6-instructors");
+  const { data } = useFetch("users/instructors?limit=6");
   const { instructors } = data;
 
   return (
@@ -11,8 +11,8 @@ const PopularInstructors = () => {
       <div className="container">
         <SectionTitle>Popular Instructors</SectionTitle>
         <div className="grid grid-cols-3 gap-[3.2rem]">
-          {instructors?.map((instruct) => (
-            <InstructorCard key={instruct._id} instructorInfo={instruct} />
+          {instructors?.map((instructor) => (
+            <InstructorCard key={instructor._id} instructorInfo={instructor} />
           ))}
         </div>
       </div>
