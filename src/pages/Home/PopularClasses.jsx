@@ -4,7 +4,9 @@ import SectionTitle from "../../UI/SectionTitle";
 import useFetch from "../../hooks/useFetch";
 
 const PopularClasses = () => {
-  const { data } = useFetch("classes?limit=6&sort=-enrolledStudents");
+  const { data } = useFetch(
+    "classes?limit=6&sort=-enrolledStudents&status=Approved"
+  );
   const { classes } = data;
 
   return (

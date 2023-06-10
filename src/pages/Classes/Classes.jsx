@@ -1,8 +1,22 @@
+import ClassCard from "../../UI/ClassCard";
+import SectionTitle from "../../UI/SectionTitle";
+import useFetch from "../../hooks/useFetch";
+
 const Classes = () => {
+  const { data } = useFetch("classes?limit=6&sort=-enrolledStudents");
+  const { classes } = data;
+
   return (
-    <div>
-      <h1>Classes</h1>
-    </div>
+    <section className="my-[9rem]">
+      <div className="container">
+        <SectionTitle>Popular Classes</SectionTitle>
+        <div className="grid grid-cols-3 gap-[3.2rem]">
+          {classes?.map((classInfo) => (
+            <ClassCard key={classInfo._id} classInfo={classInfo} />
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };
 
