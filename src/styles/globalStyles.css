@@ -74,6 +74,10 @@
   .form label span {
     font-size: 1.6rem !important;
   }
+
+  /* .fill svg {
+    fill: #dc3136;
+  } */
 }
 
 ::-webkit-scrollbar {

@@ -11,7 +11,7 @@ const PrivateRoutes = ({ children }) => {
   if (loading) return <Spinner />;
 
   if (!user) {
-    Swal.fire("You have to log in first to view details");
+    Swal.fire("You have to log in first to perform this action!");
   }
 
   if (user) return children;

@@ -1,5 +1,12 @@
+import Swal from "sweetalert2";
+import useAuth from "../hooks/useAuth";
+import useAxiosFetch from "../hooks/useAxiosFetch";
+import { useNavigate } from "react-router-dom";
+
 const ClassCard = ({ classInfo }) => {
+  const { axiosSecureFetch } = useAxiosFetch();
   const {
+    _id,
     classImage,
     className,
     instructorName,
@@ -9,6 +16,27 @@ const ClassCard = ({ classInfo }) => {
     enrolledStudents,
     totalSeats,
   } = classInfo;
+
+  const { user } = useAuth();
+  const navigate = useNavigate();
+
+  const handleSelectedBTN = async (info) => {
+    if (!user) {
+      Swal.fire("You have to log in first to perform this action!");
+
+      return navigate("/login", { replace: true });
+    }
+
+    const userEmail = user?.email;
+    const selectedClass = { email: userEmail, ...info };
+
+    const data = await axiosSecureFetch.post("selectedClasses", {
+      ...selectedClass,
+    });
+    if (data) {
+      Swal.fire("You have successfully selected the class!");
+    }
+  };
 
   return (
     <>
@@ -38,7 +66,17 @@ const ClassCard = ({ classInfo }) => {
                 <p>Available Seats: {availableSeats}</p>
               </div>
             </div>
-            <button className="btn py-[1.4rem] bg-colorPrimary text-white w-full h-auto text-textBody">
+            <button
+              onClick={() =>
+                handleSelectedBTN({
+                  classID: _id,
+                  classImage,
+                  className,
+                  price,
+                })
+              }
+              className="btn py-[1.4rem] bg-colorPrimary text-white w-full h-auto text-textBody"
+            >
               Select
             </button>
           </div>

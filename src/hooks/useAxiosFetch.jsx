@@ -17,31 +17,46 @@ const useAxiosFetch = () => {
 
   useEffect(() => {
     console.log("hello from axios secure");
-
-    axiosSecureFetch.interceptors.request.use((config) => {
-      const token = localStorage.getItem("access-token");
-      if (token) {
-        config.headers.Authorization = `Bearer ${token}`;
-      }
-      return config;
-    });
-
-    axiosSecureFetch.interceptors.response.use(
-      (response) => response,
-
-      async (error) => {
-        if (
-          error.response &&
-          (error.response.status === 401 || error.response.status === 403)
-        ) {
-          await logout();
-          navigate("/login");
+    axiosSecureFetch.interceptors.request.use(
+      (config) => {
+        const token = localStorage.getItem("access-token");
+        if (token) {
+          config.headers.Authorization = `Bearer ${token}`;
         }
 
+        return config;
+      },
+      (error) => {
+        if (
+          error.response &&
+          (error.response.status === 401 ||
+            error.response.status === 403 ||
+            error.response.status === 400)
+        ) {
+          logout();
+          navigate("/login");
+        }
+        console.log(error);
         return Promise.reject(error);
       }
     );
-  }, [logout, navigate, axiosSecureFetch]);
+
+    axiosSecureFetch.interceptors.response.use(
+      (response) => response,
+      (error) => {
+        if (
+          error.response &&
+          (error.response.status === 401 ||
+            error.response.status === 403 ||
+            error.response.status === 400)
+        ) {
+          logout();
+          navigate("/login");
+        }
+        return Promise.reject(error);
+      }
+    );
+  }, [logout, navigate]);
 
   return { axiosFetch, axiosSecureFetch };
 };

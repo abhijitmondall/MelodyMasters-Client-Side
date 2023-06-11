@@ -9,7 +9,7 @@ const Classes = () => {
   return (
     <section className="my-[9rem]">
       <div className="container">
-        <SectionTitle>Popular Classes</SectionTitle>
+        <SectionTitle>Explore All Classes</SectionTitle>
         <div className="grid grid-cols-3 gap-[3.2rem]">
           {classes?.map((classInfo) => (
             <ClassCard key={classInfo._id} classInfo={classInfo} />

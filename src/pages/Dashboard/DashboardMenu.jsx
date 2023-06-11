@@ -1,53 +1,70 @@
 import { NavLink } from "react-router-dom";
+import { FcHome } from "react-icons/fc";
+import { GiGraduateCap, GiTeacher, GiMusicalScore } from "react-icons/gi";
+import StudentMenu from "./Student/StudentMenu";
+import useUsers from "../../hooks/useUsers";
 
 const DashboardMenu = () => {
-  return (
-    <div className="h-[100vh] w-full bg-colorSecondary p-[3.2rem] rounded-l-[2rem]">
-      <ul className="flex flex-col gap-[1.6rem] mt-10">
-        <li>
-          <NavLink
-            to="/"
-            className={({ isActive }) => (isActive ? "text-colorPrimary" : "")}
-          >
-            Home
-          </NavLink>
-        </li>
+  const users = useUsers();
 
+  return (
+    <div className="h-[100vh] w-full bg-colorSecondary p-[1.2rem] rounded-l-[2rem]">
+      <div className="flex items-center gap-5 text-textH2 text-colorGreyDark4 p-[1.2rem]">
+        <span>
+          <GiMusicalScore />
+        </span>
+        <h2>MelodyMasters</h2>
+      </div>
+      <ul className="flex flex-col gap-[1.6rem] mt-10 menu text-textBody font-bold text-colorGreyLight4 rounded-box">
         <li>
           <NavLink
             to="/dashboard/"
-            className={({ isActive }) =>
-              isActive ? "text-colorPrimary" : "text-colorDark"
-            }
+            className={({ isActive }) => (isActive ? "text-colorPrimary" : "")}
           >
+            <span className="mt-[-3px]">
+              <FcHome />
+            </span>
             Dashboard
           </NavLink>
         </li>
 
-        <li>
+        {users?.role === "Student" && <StudentMenu />}
+        <StudentMenu />
+        <li className="border-t-[1px] mt-[6rem]">
           <NavLink
-            to="/dashboard/selectedClasses"
-            className={({ isActive }) => (isActive ? "text-colorPrimary" : "")}
+            to="/"
+            className={({ isActive }) =>
+              isActive ? "text-colorPrimary" : "my-3"
+            }
           >
-            My Selected Classes
+            <span className="mt-[-3px]">
+              <FcHome />
+            </span>
+            Home
           </NavLink>
-        </li>
 
-        <li>
           <NavLink
-            to="/dashboard/enrolledClasses"
-            className={({ isActive }) => (isActive ? "text-colorPrimary" : "")}
+            to="/classes"
+            className={({ isActive }) =>
+              isActive ? "text-colorPrimary" : "my-3"
+            }
           >
-            My Enrolled Classes
+            <span>
+              <GiGraduateCap />
+            </span>
+            Classes
           </NavLink>
-        </li>
 
-        <li>
           <NavLink
-            to="/dashboard/paymentHistory"
-            className={({ isActive }) => (isActive ? "text-colorPrimary" : "")}
+            to="/instructors"
+            className={({ isActive }) =>
+              isActive ? "text-colorPrimary" : "my-3"
+            }
           >
-            Payment History
+            <span>
+              <GiTeacher />
+            </span>
+            Instructors
           </NavLink>
         </li>
       </ul>

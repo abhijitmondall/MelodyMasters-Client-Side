@@ -10,6 +10,7 @@ import {
 } from "firebase/auth";
 
 import { auth } from "../firebase/firebase.config";
+import axios from "axios";
 
 export const AuthContext = createContext(null);
 
@@ -56,6 +57,21 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+
+      // Get and Set Token
+      if (currentUser) {
+        axios
+          .get(
+            `${import.meta.env.VITE_API_BASE_URL}users/jwt/${currentUser.email}`
+          )
+          .then(({ data }) => {
+            localStorage.setItem("access-token", data.token);
+            console.log(data);
+          });
+      } else {
+        localStorage.removeItem("access-token");
+      }
+
       setLoading(false);
     });
 
