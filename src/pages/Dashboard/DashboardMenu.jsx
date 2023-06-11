@@ -29,7 +29,7 @@ const DashboardMenu = () => {
         </li>
 
         {users?.role === "Student" && <StudentMenu />}
-        <StudentMenu />
+
         <li className="border-t-[1px] mt-[6rem]">
           <NavLink
             to="/"
