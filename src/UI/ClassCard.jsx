@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const ClassCard = ({ classInfo }) => {
   const { axiosSecureFetch } = useAxiosFetch();
+
   const {
     _id,
     classImage,
@@ -30,9 +31,10 @@ const ClassCard = ({ classInfo }) => {
     const userEmail = user?.email;
     const selectedClass = { email: userEmail, ...info };
 
-    const data = await axiosSecureFetch.post("selectedClasses", {
+    const { data } = await axiosSecureFetch.post("selectedClasses", {
       ...selectedClass,
     });
+
     if (data) {
       Swal.fire("You have successfully selected the class!");
     }
@@ -75,9 +77,11 @@ const ClassCard = ({ classInfo }) => {
                   price,
                 })
               }
+              // disabled={selected?.some((el) => el._id === _id)}
               className="btn py-[1.4rem] bg-colorPrimary text-white w-full h-auto text-textBody"
             >
               Select
+              {/* {false ? "Selected" : "Select"} */}
             </button>
           </div>
         </div>

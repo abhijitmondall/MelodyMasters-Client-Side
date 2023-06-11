@@ -78,6 +78,10 @@
   /* .fill svg {
     fill: #dc3136;
   } */
+
+  .grid-cols {
+    grid-template-columns: 0.5fr repeat(5, 1fr);
+  }
 }
 
 ::-webkit-scrollbar {

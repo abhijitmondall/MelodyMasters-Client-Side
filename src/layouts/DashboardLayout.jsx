@@ -6,7 +6,7 @@ const DashboardLayout = () => {
   return (
     <section className="bg-colorGreyLight4 fixed top-0 left-0 right-0 bottom-0 overflow-y-auto">
       <div className="container">
-        <div className="grid g-cols-2 justify-items-center my-[6rem] rounded-[2.5rem]">
+        <div className="grid g-cols-2 h-[100vh] justify-items-center my-[9rem] rounded-[2.5rem]">
           <DashboardMenu />
 
           <div className="w-full flex flex-col items-stretch rounded-r-[2rem]">

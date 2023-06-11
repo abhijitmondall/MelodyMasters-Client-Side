@@ -8,7 +8,7 @@ const DashboardMenu = () => {
   const users = useUsers();
 
   return (
-    <div className="h-[100vh] w-full bg-colorSecondary p-[1.2rem] rounded-l-[2rem]">
+    <div className="w-full bg-colorSecondary p-[1.2rem] rounded-l-[2rem]">
       <div className="flex items-center gap-5 text-textH2 text-colorGreyDark4 p-[1.2rem]">
         <span>
           <GiMusicalScore />

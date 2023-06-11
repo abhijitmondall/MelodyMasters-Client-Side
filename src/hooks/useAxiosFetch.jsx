@@ -16,7 +16,6 @@ const useAxiosFetch = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log("hello from axios secure");
     axiosSecureFetch.interceptors.request.use(
       (config) => {
         const token = localStorage.getItem("access-token");
