@@ -1,8 +1,6 @@
-import { useEffect, useState } from "react";
 import ClassCard from "../../UI/ClassCard";
 import SectionTitle from "../../UI/SectionTitle";
 import useFetch from "../../hooks/useFetch";
-import useSelectedClasses from "../../hooks/useSelectedClasses";
 import Spinner from "../../UI/Spinner";
 
 const PopularClasses = () => {

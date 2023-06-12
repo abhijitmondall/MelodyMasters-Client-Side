@@ -66,7 +66,11 @@ const AddClassForm = ({ info, children, methodType, className }) => {
         onSubmit={handleSubmit(onSubmit)}
         className={`form bg-gradient ${className?.className || ""}`}
       >
-        {error && <p className="error-message">{error}</p>}
+        {error && (
+          <p className="text-colorTertiary text-textBody text-center">
+            {error}
+          </p>
+        )}
         <div className="form__input">
           <input
             type="text"
