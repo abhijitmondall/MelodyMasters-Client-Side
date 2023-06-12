@@ -55,7 +55,11 @@ const ClassCard = ({ classInfo, children, options }) => {
     <>
       <div className="card w-full glass text-textBody">
         <figure>
-          <img src={classImage} alt={className} className="w-full" />
+          <img
+            src={classImage}
+            alt={className}
+            className="w-full h-[25rem] object-cover"
+          />
         </figure>
         <div className="card-body px-0">
           <h3 className="card-title text-textH3 p-[1.6rem] text-colorPrimary">

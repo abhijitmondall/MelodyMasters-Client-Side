@@ -6,8 +6,8 @@ const DashboardProfile = () => {
   const { users } = useUsers();
 
   return (
-    <div className="w-full text-center p-[3.2rem] bg-colorGreyLight1 rounded-br-[2rem]">
-      <div>
+    <section className="w-full text-center p-[3.2rem] bg-colorGreyLight1 rounded-br-[2rem]">
+      <div className="sticky top-[3rem]">
         <img
           src={user.photoURL}
           alt=""
@@ -18,7 +18,7 @@ const DashboardProfile = () => {
         </h2>
         <p className="text-colorGreyLight4 font-bold">{users?.role}</p>
       </div>
-    </div>
+    </section>
   );
 };
 
