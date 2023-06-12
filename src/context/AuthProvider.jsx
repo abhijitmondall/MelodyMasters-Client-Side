@@ -62,7 +62,9 @@ const AuthProvider = ({ children }) => {
       if (currentUser) {
         axios
           .get(
-            `${import.meta.env.VITE_API_BASE_URL}users/jwt/${currentUser.email}`
+            `${import.meta.env.VITE_API_BASE_URL}users/jwt/${
+              currentUser?.email
+            }`
           )
           .then(({ data }) => {
             localStorage.setItem("access-token", data.token);

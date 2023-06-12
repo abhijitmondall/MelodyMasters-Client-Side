@@ -7,7 +7,7 @@ const SelectedClasses = () => {
   const selectedClasses = data?.data.selectedClasses;
 
   return (
-    <div className="w-full p-[1.6rem]">
+    <section className="w-full p-[1.6rem]">
       <div className="mt-[3rem]">
         <SectionTitle
           className={{ className: "bg-colorGreyLight2 text-textH5" }}
@@ -34,7 +34,7 @@ const SelectedClasses = () => {
           </h2>
         )}
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -35,7 +35,7 @@ const SelectedClassCard = ({ info, index }) => {
       <div>{info.price}$</div>
       <button
         onClick={() => handleDeleteOperation(info._id)}
-        className="btn btn-outline btn-accent text-textBody normal-case h-auto"
+        className="btn btn-outline text-colorTertiary text-textBody normal-case h-auto"
       >
         Delete
       </button>

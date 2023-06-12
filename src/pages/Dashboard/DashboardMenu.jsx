@@ -38,7 +38,7 @@ const DashboardMenu = () => {
           <NavLink
             to="/"
             className={({ isActive }) =>
-              isActive ? "text-colorPrimary" : "my-3"
+              isActive ? "text-colorPrimary" : "mt-[3rem]"
             }
           >
             <span className="mt-[-3px]">
@@ -50,7 +50,7 @@ const DashboardMenu = () => {
           <NavLink
             to="/classes"
             className={({ isActive }) =>
-              isActive ? "text-colorPrimary" : "my-3"
+              isActive ? "text-colorPrimary" : "mt-[1.6rem]"
             }
           >
             <span>
@@ -62,7 +62,7 @@ const DashboardMenu = () => {
           <NavLink
             to="/instructors"
             className={({ isActive }) =>
-              isActive ? "text-colorPrimary" : "my-3"
+              isActive ? "text-colorPrimary" : "mt-[1.6rem]"
             }
           >
             <span>

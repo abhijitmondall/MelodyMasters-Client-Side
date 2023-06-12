@@ -42,7 +42,13 @@ const EnrolledClasses = () => {
           <Spinner />
         ) : (
           enrolledClasses?.map((info, index) => (
-            <ClassCard key={index} classInfo={info} />
+            <ClassCard
+              key={index}
+              classInfo={info}
+              options={{ enrolled: true }}
+            >
+              Start Learning
+            </ClassCard>
           ))
         )}
       </div>

@@ -28,6 +28,9 @@ const ClassCard = ({ classInfo, children, options }) => {
       // TODO: handle Update the instructors class
       console.log("will be update in future");
       return;
+    } else if (options?.enrolled) {
+      // TODO: handle Enrolled Student class for start learning
+      console.log("will be update in future");
     } else {
       if (!user) {
         Swal.fire("You have to log in first to perform this action!");

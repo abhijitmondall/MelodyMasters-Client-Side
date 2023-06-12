@@ -5,7 +5,7 @@ import DashboardProfile from "../pages/Dashboard/DashboardProfile";
 const DashboardLayout = () => {
   return (
     <section className="bg-colorGreyLight4 fixed top-0 left-0 right-0 bottom-0 overflow-y-auto">
-      <div className="container">
+      <div className="max-w-[150rem] mx-auto px-[1.6rem]">
         <div className="grid g-cols-2 h-[100vh] justify-items-center my-[9rem] rounded-[2.5rem]">
           <DashboardMenu />
 

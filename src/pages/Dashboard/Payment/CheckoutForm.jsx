@@ -89,12 +89,11 @@ const CheckoutForm = () => {
         className: info?.info?.className,
         classImage: info?.info?.classImage,
         enrolledStudents: info?.info?.enrolledStudents,
+        createdAt: Date.now(),
       };
 
       const res = await axiosSecureFetch.post("enrolledUsers", enrolledUser);
       if (res) {
-        Swal.fire("You have successfully enrolled!");
-
         // Update Available Seats
         const newData = parseInt(info?.info?.enrolledStudents + 1);
 
@@ -108,8 +107,9 @@ const CheckoutForm = () => {
         );
 
         if (res2) {
+          Swal.fire("You have successfully enrolled!");
           refetch();
-          navigate("/dashboard/enrolledClasses", { replace: true });
+          navigate("/dashboard/paymentHistory", { replace: true });
         }
       }
     }

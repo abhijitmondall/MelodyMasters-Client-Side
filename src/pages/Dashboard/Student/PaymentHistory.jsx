@@ -14,7 +14,7 @@ const PaymentHistory = () => {
   useEffect(() => {
     (async () => {
       const res = await axiosSecureFetch.get(
-        `/enrolledUsers?email=${user.email}&sort=-price`
+        `/enrolledUsers?email=${user.email}&sort=-createdAt`
       );
       if (res) {
         setEnrolledClasses(res.data.data.enrolledUsers);
@@ -29,7 +29,7 @@ const PaymentHistory = () => {
         <SectionTitle
           className={{ className: "bg-colorGreyLight2 text-textH5" }}
         >
-          My Enrolled Classes
+          Payment History
         </SectionTitle>
       </div>
 
@@ -58,8 +58,8 @@ const PaymentHistory = () => {
         {enrolledClasses?.length !== 0 || loading ? (
           ""
         ) : (
-          <h2 className="text-textH2 text-center text-colorPrimary font-bold">
-            You didn't Enroll any classes yet!
+          <h2 className="text-textH2 text-center text-colorPrimary font-bold mt-[6rem]">
+            You didn't Enroll any classes yet! No Payment History!
           </h2>
         )}
       </div>

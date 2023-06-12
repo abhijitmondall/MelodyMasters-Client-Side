@@ -1,20 +1,24 @@
 import { useQuery } from "@tanstack/react-query";
-import useFetch from "./useFetch";
 import useAuth from "./useAuth";
 
-const useQueryFetch = (url) => {
-  const { user } = useAuth();
+const useClasses = () => {
+  const { user, loading } = useAuth();
 
   const { refetch, data } = useQuery({
-    queryKey: ["selectedClasses", user?.email, url],
+    queryKey: ["classes", user],
 
     queryFn: async () => {
-      const { data: info } = await useFetch(url);
-
-      return info;
+      const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}classes`, {
+        method: "GET",
+        headers: {
+          "content-type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("access-token")}`,
+        },
+      });
+      return await res.json();
     },
   });
   return { refetch, data };
 };
 
-export default useQueryFetch;
+export default useClasses;
