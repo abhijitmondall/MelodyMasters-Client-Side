@@ -12,6 +12,7 @@ import Dashboard from "../pages/Dashboard/Dashboard";
 import Register from "../pages/Register/Register";
 import PrivateRoutes from "./PrivateRoutes";
 import Payment from "../pages/Dashboard/Payment/Payment";
+import ErrorPage from "../pages/404/ErrorPage";
 
 const router = createBrowserRouter([
   {
@@ -78,6 +79,11 @@ const router = createBrowserRouter([
         element: <Payment />,
       },
     ],
+  },
+
+  {
+    path: "*",
+    element: <ErrorPage />,
   },
 ]);
 

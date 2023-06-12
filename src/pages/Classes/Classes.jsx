@@ -3,7 +3,7 @@ import SectionTitle from "../../UI/SectionTitle";
 import useFetch from "../../hooks/useFetch";
 
 const Classes = () => {
-  const { data } = useFetch("classes?limit=6&sort=-enrolledStudents");
+  const { data } = useFetch("classes?sort=-enrolledStudents");
   const { classes } = data;
 
   return (
