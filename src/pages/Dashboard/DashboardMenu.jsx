@@ -3,6 +3,7 @@ import { FcHome } from "react-icons/fc";
 import { GiGraduateCap, GiTeacher, GiMusicalScore } from "react-icons/gi";
 import StudentMenu from "./Student/StudentMenu";
 import useUsers from "../../hooks/useUsers";
+import InstructorMenu from "./Instructor/InstructorMenu";
 
 const DashboardMenu = () => {
   const users = useUsers();
@@ -29,6 +30,7 @@ const DashboardMenu = () => {
         </li>
 
         {users?.role === "Student" && <StudentMenu />}
+        {users?.role === "Instructor" && <InstructorMenu />}
 
         <li className="border-t-[1px] mt-[6rem]">
           <NavLink
@@ -52,7 +54,7 @@ const DashboardMenu = () => {
             <span>
               <GiGraduateCap />
             </span>
-            Classes
+            All Classes
           </NavLink>
 
           <NavLink

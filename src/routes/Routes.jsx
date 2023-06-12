@@ -13,6 +13,8 @@ import Register from "../pages/Register/Register";
 import PrivateRoutes from "./PrivateRoutes";
 import Payment from "../pages/Dashboard/Payment/Payment";
 import ErrorPage from "../pages/404/ErrorPage";
+import AddClass from "../pages/Dashboard/Instructor/AddClass";
+import MyClasses from "../pages/Dashboard/Instructor/MyClasses";
 
 const router = createBrowserRouter([
   {
@@ -77,6 +79,16 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/payment",
         element: <Payment />,
+      },
+
+      {
+        path: "/dashboard/addClass",
+        element: <AddClass />,
+      },
+
+      {
+        path: "/dashboard/myClasses",
+        element: <MyClasses />,
       },
     ],
   },
