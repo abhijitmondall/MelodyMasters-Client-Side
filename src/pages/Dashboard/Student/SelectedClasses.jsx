@@ -3,9 +3,9 @@ import useSelectedClasses from "../../../hooks/useSelectedClasses";
 import SelectedClassCard from "./SelectedClassCard";
 
 const SelectedClasses = () => {
-  const { data, refetch } = useSelectedClasses();
+  const { data } = useSelectedClasses();
   const selectedClasses = data?.data.selectedClasses;
-  console.log(selectedClasses);
+
   return (
     <div className="w-full p-[1.6rem]">
       <div className="mt-[3rem]">

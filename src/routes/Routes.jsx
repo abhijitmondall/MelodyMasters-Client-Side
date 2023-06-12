@@ -11,6 +11,7 @@ import PaymentHistory from "../pages/Dashboard/Student/PaymentHistory";
 import Dashboard from "../pages/Dashboard/Dashboard";
 import Register from "../pages/Register/Register";
 import PrivateRoutes from "./PrivateRoutes";
+import Payment from "../pages/Dashboard/Payment/Payment";
 
 const router = createBrowserRouter([
   {
@@ -70,6 +71,11 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/paymentHistory",
         element: <PaymentHistory />,
+      },
+
+      {
+        path: "/dashboard/payment",
+        element: <Payment />,
       },
     ],
   },

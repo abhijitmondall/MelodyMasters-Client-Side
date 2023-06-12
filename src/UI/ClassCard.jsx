@@ -75,6 +75,7 @@ const ClassCard = ({ classInfo }) => {
                   classImage,
                   className,
                   price,
+                  enrolledStudents,
                 })
               }
               // disabled={selected?.some((el) => el._id === _id)}

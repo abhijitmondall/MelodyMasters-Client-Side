@@ -1,16 +1,24 @@
 import useAxiosFetch from "../../../hooks/useAxiosFetch";
 import useSelectedClasses from "../../../hooks/useSelectedClasses";
+import usePayment from "../../../hooks/usePayment";
+import { Link } from "react-router-dom";
 
 const SelectedClassCard = ({ info, index }) => {
   const { axiosSecureFetch } = useAxiosFetch();
   const { refetch } = useSelectedClasses();
+  const { handlePayment } = usePayment();
 
   const handleDeleteOperation = async (id) => {
     const res = await axiosSecureFetch.delete(`selectedClasses/${id}`);
     if (res) {
       refetch();
     }
-    console.log(id);
+  };
+
+  const handlePayOperation = (info) => {
+    if (info) {
+      handlePayment(info);
+    }
   };
 
   return (
@@ -31,9 +39,15 @@ const SelectedClassCard = ({ info, index }) => {
       >
         Delete
       </button>
-      <button className="btn btn-outline btn-accent text-textBody normal-case h-auto">
-        Pay Now
-      </button>
+
+      <Link to="/dashboard/payment">
+        <button
+          onClick={() => handlePayOperation({ info })}
+          className="btn btn-outline btn-accent text-textBody normal-case h-auto"
+        >
+          Pay Now
+        </button>
+      </Link>
     </div>
   );
 };
