@@ -3,10 +3,11 @@ import useFetch from "./useFetch";
 
 const useUsers = () => {
   const { user } = useAuth();
-  const { data } = useFetch(`users?email=${user.email}`);
-  const users = data?.data?.users[0];
 
-  return users;
+  const { data, loading } = useFetch(`users?email=${user?.email}`);
+  const users = data?.data?.users?.[0];
+
+  return { users, loading };
 };
 
 export default useUsers;

@@ -15,6 +15,9 @@ import Payment from "../pages/Dashboard/Payment/Payment";
 import ErrorPage from "../pages/404/ErrorPage";
 import AddClass from "../pages/Dashboard/Instructor/AddClass";
 import MyClasses from "../pages/Dashboard/Instructor/MyClasses";
+import ManageClasses from "../pages/Dashboard/Admin/ManageClasses";
+import ManageUsers from "../pages/Dashboard/Admin/ManageUsers";
+import AdminRoutes from "./AdminRoutes";
 
 const router = createBrowserRouter([
   {
@@ -89,6 +92,25 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/myClasses",
         element: <MyClasses />,
+      },
+
+      // Only Admin
+      {
+        path: "/dashboard/manageClasses",
+        element: (
+          <AdminRoutes>
+            <ManageClasses />
+          </AdminRoutes>
+        ),
+      },
+
+      {
+        path: "/dashboard/manageUsers",
+        element: (
+          <AdminRoutes>
+            <ManageUsers />
+          </AdminRoutes>
+        ),
       },
     ],
   },

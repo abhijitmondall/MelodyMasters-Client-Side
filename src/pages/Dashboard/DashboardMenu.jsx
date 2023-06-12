@@ -4,9 +4,10 @@ import { GiGraduateCap, GiTeacher, GiMusicalScore } from "react-icons/gi";
 import StudentMenu from "./Student/StudentMenu";
 import useUsers from "../../hooks/useUsers";
 import InstructorMenu from "./Instructor/InstructorMenu";
+import AdminMenu from "./Admin/AdminMenu";
 
 const DashboardMenu = () => {
-  const users = useUsers();
+  const { users } = useUsers();
 
   return (
     <div className="w-full bg-colorSecondary p-[1.2rem] rounded-l-[2rem]">
@@ -31,6 +32,7 @@ const DashboardMenu = () => {
 
         {users?.role === "Student" && <StudentMenu />}
         {users?.role === "Instructor" && <InstructorMenu />}
+        {users?.role === "Admin" && <AdminMenu />}
 
         <li className="border-t-[1px] mt-[6rem]">
           <NavLink

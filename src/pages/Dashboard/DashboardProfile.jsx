@@ -3,7 +3,7 @@ import useUsers from "../../hooks/useUsers";
 
 const DashboardProfile = () => {
   const { user } = useAuth();
-  const users = useUsers();
+  const { users } = useUsers();
 
   return (
     <div className="w-full text-center p-[3.2rem] bg-colorGreyLight1 rounded-br-[2rem]">

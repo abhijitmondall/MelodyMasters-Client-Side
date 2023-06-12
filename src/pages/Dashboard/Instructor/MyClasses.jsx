@@ -6,9 +6,7 @@ import useFetch from "../../../hooks/useFetch";
 
 const MyClasses = () => {
   const { user } = useAuth();
-  const { data, loading } = useFetch(
-    `classes?status=Approved&instructorEmail=${user?.email}`
-  );
+  const { data, loading } = useFetch(`classes?instructorEmail=${user?.email}`);
 
   const { classes } = data;
   return (
@@ -20,25 +18,34 @@ const MyClasses = () => {
           My Approved Classes
         </SectionTitle>
       </div>
-      <div className="grid grid-cols-2 gap-[3.2rem]">
-        {loading ? (
-          <Spinner />
-        ) : (
-          classes?.map((classInfo) => (
+      <div className="flex flex-col gap-[3rem]">
+        <div className="grid grid-cols items-center justify-items-center  border-b-[1px] p-[1.6rem] bg-colorGreyLight3">
+          <div className="">#</div>
+          <div>Class Img</div>
+          <div>Class Name</div>
+          <div>Price</div>
+          <div>Action</div>
+          <div>Action</div>
+        </div>
+
+        <div className="grid grid-cols-2 gap-[3rem] items-center justify-items-center ">
+          {classes?.map((info) => (
             <ClassCard
-              key={classInfo._id}
-              classInfo={classInfo}
-              // selected={selected}
-            />
-          ))
+              key={info._id}
+              classInfo={info}
+              options={{ update: true }}
+            >
+              Update
+            </ClassCard>
+          ))}
+        </div>
+
+        {classes?.length === 0 && (
+          <h2 className="text-textH2 text-center text-colorPrimary font-bold">
+            No Approved Classes Yet!
+          </h2>
         )}
       </div>
-
-      {classes?.length === 0 && (
-        <h2 className="text-textH2 text-center text-colorPrimary font-bold">
-          No Approved Classes Yet!
-        </h2>
-      )}
     </section>
   );
 };

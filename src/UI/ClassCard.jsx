@@ -3,7 +3,7 @@ import useAuth from "../hooks/useAuth";
 import useAxiosFetch from "../hooks/useAxiosFetch";
 import { useNavigate } from "react-router-dom";
 
-const ClassCard = ({ classInfo }) => {
+const ClassCard = ({ classInfo, children, options }) => {
   const { axiosSecureFetch } = useAxiosFetch();
 
   const {
@@ -16,27 +16,35 @@ const ClassCard = ({ classInfo }) => {
     availableSeats,
     enrolledStudents,
     totalSeats,
+    status,
+    feedback,
   } = classInfo;
 
   const { user } = useAuth();
   const navigate = useNavigate();
 
   const handleSelectedBTN = async (info) => {
-    if (!user) {
-      Swal.fire("You have to log in first to perform this action!");
+    if (options?.update) {
+      // TODO: handle Update the instructors class
+      console.log("will be update in future");
+      return;
+    } else {
+      if (!user) {
+        Swal.fire("You have to log in first to perform this action!");
 
-      return navigate("/login", { replace: true });
-    }
+        return navigate("/login", { replace: true });
+      }
 
-    const userEmail = user?.email;
-    const selectedClass = { email: userEmail, ...info };
+      const userEmail = user?.email;
+      const selectedClass = { email: userEmail, ...info };
 
-    const { data } = await axiosSecureFetch.post("selectedClasses", {
-      ...selectedClass,
-    });
+      const { data } = await axiosSecureFetch.post("selectedClasses", {
+        ...selectedClass,
+      });
 
-    if (data) {
-      Swal.fire("You have successfully selected the class!");
+      if (data) {
+        Swal.fire("You have successfully selected the class!");
+      }
     }
   };
 
@@ -59,9 +67,18 @@ const ClassCard = ({ classInfo }) => {
             <span>By {instructorName}</span>
           </div>
 
+          {options?.update && (
+            <p className="px-[1.6rem]">
+              Feedback: {feedback ? feedback : "No Feedback Yet!"}
+            </p>
+          )}
+
           <div className="card-actions border-t-[.2rem] border-colorGreyLight3 border-solid px-[1.6rem] mt-6">
             <div className="flex justify-between w-full mt-6 py-[1rem]  text-textH6 px-[1.6rem] items-center">
-              <p className="font-bold text-textH4 ">{price}$</p>
+              <div>
+                <p className="font-bold text-textH4 ">{price}$</p>
+                {options?.update && <p>Status: {status}</p>}
+              </div>
               <div className="text-center">
                 <p>Enrolled: {enrolledStudents}</p>
                 <p>Total Seats: {totalSeats}</p>
@@ -81,7 +98,7 @@ const ClassCard = ({ classInfo }) => {
               // disabled={selected?.some((el) => el._id === _id)}
               className="btn py-[1.4rem] bg-colorPrimary text-white w-full h-auto text-textBody"
             >
-              Select
+              {children}
               {/* {false ? "Selected" : "Select"} */}
             </button>
           </div>

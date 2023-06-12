@@ -16,7 +16,9 @@ const Classes = () => {
             <Spinner />
           ) : (
             classes?.map((classInfo) => (
-              <ClassCard key={classInfo._id} classInfo={classInfo} />
+              <ClassCard key={classInfo._id} classInfo={classInfo}>
+                Select
+              </ClassCard>
             ))
           )}
         </div>

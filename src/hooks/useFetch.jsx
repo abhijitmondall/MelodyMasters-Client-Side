@@ -9,8 +9,10 @@ const useFetch = (url) => {
   useEffect(() => {
     (async () => {
       const res = await axiosFetch.get(url);
-      setData(res.data);
-      setLoading(false);
+      if (res) {
+        setLoading(false);
+        setData(res.data);
+      }
     })();
   }, []);
 

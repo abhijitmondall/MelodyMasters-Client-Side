@@ -23,7 +23,9 @@ const PopularClasses = () => {
                 key={classInfo._id}
                 classInfo={classInfo}
                 // selected={selected}
-              />
+              >
+                Select
+              </ClassCard>
             ))
           )}
         </div>
