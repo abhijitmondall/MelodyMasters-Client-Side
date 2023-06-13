@@ -4,29 +4,10 @@ import useAxiosFetch from "../../../hooks/useAxiosFetch";
 import useAuth from "../../../hooks/useAuth";
 import ClassCard from "../../../UI/ClassCard";
 import Spinner from "../../../UI/Spinner";
+import useEnrolledClasses from "../../../hooks/useEnrolledClasses";
 
 const EnrolledClasses = () => {
-  const { axiosSecureFetch } = useAxiosFetch();
-  const { user } = useAuth();
-  const [enrolledClasses, setEnrolledClasses] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    (async () => {
-      const res = await axiosSecureFetch.get(
-        `/enrolledUsers?email=${user.email}`
-      );
-      if (res) {
-        const newData = res.data?.data?.enrolledUsers.map(async (el) => {
-          const res2 = await axiosSecureFetch.get(`/classes/${el?.classID}`);
-          return res2.data.class;
-        });
-        const classes = await Promise.all(newData);
-        setEnrolledClasses(classes);
-      }
-      setLoading(false);
-    })();
-  }, []);
+  const { loading, enrolledClasses } = useEnrolledClasses();
 
   return (
     <section className="w-full p-[1.6rem]">

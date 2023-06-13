@@ -2,9 +2,22 @@ import Swal from "sweetalert2";
 import useAuth from "../hooks/useAuth";
 import useAxiosFetch from "../hooks/useAxiosFetch";
 import { useNavigate } from "react-router-dom";
+import useUsers from "../hooks/useUsers";
 
-const ClassCard = ({ classInfo, children, options }) => {
+const ClassCard = ({
+  classInfo,
+  children,
+  options,
+  selectedClasses,
+  refetch,
+}) => {
   const { axiosSecureFetch } = useAxiosFetch();
+
+  const { users } = useUsers();
+
+  const isSelected = selectedClasses?.some((el) => {
+    return el?.classID === classInfo?._id;
+  });
 
   const {
     _id,
@@ -46,6 +59,7 @@ const ClassCard = ({ classInfo, children, options }) => {
       });
 
       if (data) {
+        refetch();
         Swal.fire("You have successfully selected the class!");
       }
     }
@@ -102,11 +116,17 @@ const ClassCard = ({ classInfo, children, options }) => {
                   enrolledStudents,
                 })
               }
-              // disabled={selected?.some((el) => el._id === _id)}
+              disabled={
+                users?.role === "Admin" ||
+                users?.role === "Instructor" ||
+                isSelected
+              }
               className="btn py-[1.4rem] bg-colorPrimary text-white w-full h-auto text-textBody"
             >
-              {children}
-              {/* {false ? "Selected" : "Select"} */}
+              {isSelected && children === "Select"
+                ? (children = "Selected")
+                : children}
+              {/* {children} */}
             </button>
           </div>
         </div>
