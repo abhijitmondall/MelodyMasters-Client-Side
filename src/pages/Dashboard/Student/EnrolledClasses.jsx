@@ -1,7 +1,4 @@
-import { useEffect, useState } from "react";
 import SectionTitle from "../../../UI/SectionTitle";
-import useAxiosFetch from "../../../hooks/useAxiosFetch";
-import useAuth from "../../../hooks/useAuth";
 import ClassCard from "../../../UI/ClassCard";
 import Spinner from "../../../UI/Spinner";
 import useEnrolledClasses from "../../../hooks/useEnrolledClasses";

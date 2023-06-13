@@ -4,20 +4,21 @@ import useAxiosFetch from "./useAxiosFetch";
 
 const useSelectedClasses = () => {
   const { user } = useAuth();
-  const { axiosSecureFetch } = useAxiosFetch();
+  const { loading, axiosSecureFetch } = useAxiosFetch();
 
   const { refetch, data } = useQuery({
-    queryKey: ["selectedClasses", user?.email],
+    queryKey: ["selectedClasses", user],
 
     queryFn: async () => {
       const res = await axiosSecureFetch(
         `selectedClasses?email=${user?.email}`
       );
-
+      if (!res) throw new Error(res.message);
       return res;
     },
   });
-  return { refetch, data };
+
+  return { loading, refetch, data };
 };
 
 export default useSelectedClasses;

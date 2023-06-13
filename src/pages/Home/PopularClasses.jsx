@@ -13,6 +13,7 @@ const PopularClasses = () => {
 
   const { classes } = data;
 
+
   return (
     <section>
       <div className="container">

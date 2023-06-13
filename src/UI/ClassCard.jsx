@@ -3,13 +3,14 @@ import useAuth from "../hooks/useAuth";
 import useAxiosFetch from "../hooks/useAxiosFetch";
 import { useNavigate } from "react-router-dom";
 import useUsers from "../hooks/useUsers";
+import useEnrolledClasses from "../hooks/useEnrolledClasses";
 
 const ClassCard = ({
   classInfo,
   children,
   options,
   selectedClasses,
-  refetch,
+  refetch: selectedClassesRefetch,
 }) => {
   const { axiosSecureFetch } = useAxiosFetch();
 
@@ -17,6 +18,13 @@ const ClassCard = ({
 
   const isSelected = selectedClasses?.some((el) => {
     return el?.classID === classInfo?._id;
+  });
+
+  const { reFetch: enrolledClassesRefetch, enrolledClasses } =
+    useEnrolledClasses();
+
+  const isEnrolled = enrolledClasses?.some((el) => {
+    return el?._id === classInfo?._id;
   });
 
   const {
@@ -44,6 +52,7 @@ const ClassCard = ({
     } else if (options?.enrolled) {
       // TODO: handle Enrolled Student class for start learning
       console.log("will be update in future");
+      return;
     } else {
       if (!user) {
         Swal.fire("You have to log in first to perform this action!");
@@ -59,7 +68,8 @@ const ClassCard = ({
       });
 
       if (data) {
-        refetch();
+        selectedClassesRefetch();
+        enrolledClassesRefetch();
         Swal.fire("You have successfully selected the class!");
       }
     }
@@ -118,15 +128,17 @@ const ClassCard = ({
               }
               disabled={
                 users?.role === "Admin" ||
-                users?.role === "Instructor" ||
-                isSelected
+                (users?.role === "Instructor" && !options) ||
+                isSelected ||
+                (isEnrolled && !options)
               }
               className="btn py-[1.4rem] bg-colorPrimary text-white w-full h-auto text-textBody"
             >
-              {isSelected && children === "Select"
+              {isEnrolled && children === "Select"
+                ? (children = "Enrolled")
+                : isSelected && children === "Select"
                 ? (children = "Selected")
                 : children}
-              {/* {children} */}
             </button>
           </div>
         </div>

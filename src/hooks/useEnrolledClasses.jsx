@@ -16,7 +16,7 @@ const useEnrolledClasses = () => {
   useEffect(() => {
     (async () => {
       const res = await axiosSecureFetch.get(
-        `enrolledUsers?email=${user.email}`
+        `enrolledUsers?email=${user?.email}`
       );
       if (res) {
         const newData = res.data?.data?.enrolledUsers.map(async (el) => {
