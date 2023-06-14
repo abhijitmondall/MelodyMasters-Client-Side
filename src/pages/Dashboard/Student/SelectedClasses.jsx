@@ -1,3 +1,4 @@
+import PageTitle from "../../../UI/PageTitle";
 import SectionTitle from "../../../UI/SectionTitle";
 import useSelectedClasses from "../../../hooks/useSelectedClasses";
 import SelectedClassCard from "./SelectedClassCard";
@@ -8,6 +9,7 @@ const SelectedClasses = () => {
 
   return (
     <section className="w-full p-[1.6rem]">
+      <PageTitle>MelodyMasters | My Selected Classes</PageTitle>
       <div className="mt-[3rem]">
         <SectionTitle
           className={{ className: "bg-colorGreyLight2 text-textH5" }}

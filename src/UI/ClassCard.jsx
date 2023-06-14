@@ -4,6 +4,7 @@ import useAxiosFetch from "../hooks/useAxiosFetch";
 import { useNavigate } from "react-router-dom";
 import useUsers from "../hooks/useUsers";
 import useEnrolledClasses from "../hooks/useEnrolledClasses";
+import { motion } from "framer-motion";
 
 const ClassCard = ({
   classInfo,
@@ -81,7 +82,11 @@ const ClassCard = ({
 
   return (
     <>
-      <div className="card w-full glass text-textBody">
+      <motion.div
+        className="card w-full glass text-textBody"
+        whileHover={{ scale: [null, 1.1, 1.1] }}
+        transition={{ duration: 0.4 }}
+      >
         <figure>
           <img
             src={classImage}
@@ -138,7 +143,7 @@ const ClassCard = ({
             </button>
           </div>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 };

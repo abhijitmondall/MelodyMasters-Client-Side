@@ -1,4 +1,5 @@
 import ClassCard from "../../UI/ClassCard";
+import PageTitle from "../../UI/PageTitle";
 import SectionTitle from "../../UI/SectionTitle";
 import Spinner from "../../UI/Spinner";
 import useFetch from "../../hooks/useFetch";
@@ -12,6 +13,7 @@ const Classes = () => {
 
   return (
     <section className="my-[9rem]">
+      <PageTitle>MelodyMasters | Classes</PageTitle>
       <div className="container">
         <SectionTitle>Explore All Classes</SectionTitle>
         <div className="grid grid-cols-3 gap-[3.2rem] mt-[3rem]">

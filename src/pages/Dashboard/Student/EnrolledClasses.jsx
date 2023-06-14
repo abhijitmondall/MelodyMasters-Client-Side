@@ -2,12 +2,14 @@ import SectionTitle from "../../../UI/SectionTitle";
 import ClassCard from "../../../UI/ClassCard";
 import Spinner from "../../../UI/Spinner";
 import useEnrolledClasses from "../../../hooks/useEnrolledClasses";
+import PageTitle from "../../../UI/PageTitle";
 
 const EnrolledClasses = () => {
   const { loading, enrolledClasses } = useEnrolledClasses();
 
   return (
     <section className="w-full p-[1.6rem]">
+      <PageTitle>MelodyMasters | My Enrolled Classes</PageTitle>
       <div className="mt-[3rem]">
         <SectionTitle
           className={{ className: "bg-colorGreyLight2 text-textH5" }}

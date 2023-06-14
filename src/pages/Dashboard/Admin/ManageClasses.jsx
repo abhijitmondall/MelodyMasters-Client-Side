@@ -3,6 +3,7 @@ import SectionTitle from "../../../UI/SectionTitle";
 
 import ManageClassCard from "./ManageClassCard";
 import Spinner from "../../../UI/Spinner";
+import PageTitle from "../../../UI/PageTitle";
 
 const ManageClasses = () => {
   const [allClasses, setAllClasses] = useState([]);
@@ -30,11 +31,12 @@ const ManageClasses = () => {
 
   return (
     <section className="w-full p-[1.2rem]">
+      <PageTitle>MelodyMasters | Manage Classes</PageTitle>
       <div className="mt-[3rem]">
         <SectionTitle
           className={{ className: "bg-colorGreyLight2 text-textH5" }}
         >
-          My Selected Classes
+          Manage Classes
         </SectionTitle>
       </div>
       <div className="max-w-[100rem] flex flex-col gap-[1.2rem]">

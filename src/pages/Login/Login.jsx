@@ -6,6 +6,7 @@ import { FaEyeSlash, FaEye } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import useAxiosFetch from "../../hooks/useAxiosFetch";
+import PageTitle from "../../UI/PageTitle";
 
 const Login = () => {
   const { user, login, error, setError, loginWithGoogle } = useAuth();
@@ -64,6 +65,7 @@ const Login = () => {
 
   return (
     <section>
+      <PageTitle>MelodyMasters | Login</PageTitle>
       <div className="hero min-h-screen py-[3rem] bg-base-200">
         {user ? (
           <div className="flex flex-col text-textH1 text-colorPrimary justify-center items-center">

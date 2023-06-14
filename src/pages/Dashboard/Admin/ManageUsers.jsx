@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import SectionTitle from "../../../UI/SectionTitle";
 import Spinner from "../../../UI/Spinner";
 import ManageUserCard from "./ManageUserCard";
+import PageTitle from "../../../UI/PageTitle";
 
 const ManageUsers = () => {
   const [allUsers, setAllUsers] = useState([]);
@@ -29,6 +30,7 @@ const ManageUsers = () => {
 
   return (
     <section className="w-full p-[1.2rem]">
+      <PageTitle>MelodyMasters | Manage Users</PageTitle>
       <div className="mt-[3rem]">
         <SectionTitle
           className={{ className: "bg-colorGreyLight2 text-textH5" }}

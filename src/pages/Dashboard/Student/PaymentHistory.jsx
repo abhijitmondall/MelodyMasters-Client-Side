@@ -4,6 +4,7 @@ import PaymentHistoryCard from "./PaymentHistoryCard";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosFetch from "../../../hooks/useAxiosFetch";
 import Spinner from "../../../UI/Spinner";
+import PageTitle from "../../../UI/PageTitle";
 
 const PaymentHistory = () => {
   const { axiosSecureFetch } = useAxiosFetch();
@@ -25,6 +26,7 @@ const PaymentHistory = () => {
 
   return (
     <section className="w-full p-[1.6rem]">
+      <PageTitle>MelodyMasters | Payment History</PageTitle>
       <div className="mt-[3rem]">
         <SectionTitle
           className={{ className: "bg-colorGreyLight2 text-textH5" }}

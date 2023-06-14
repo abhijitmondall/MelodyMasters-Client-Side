@@ -1,9 +1,11 @@
+import PageTitle from "../../../UI/PageTitle";
 import SectionTitle from "../../../UI/SectionTitle";
 import AddClassForm from "./AddClassForm";
 
 const AddClass = () => {
   return (
     <section>
+      <PageTitle>MelodyMasters | Add Classes</PageTitle>
       <div className="mt-[3rem]">
         <SectionTitle
           className={{ className: "bg-colorGreyLight2 text-textH5" }}

@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import ErrorImg from "./../../assets/error.svg";
+import PageTitle from "../../UI/PageTitle";
 
 const ErrorPage = () => {
   return (
     <>
       <section className="w-full h-full bg-gradient">
+        <PageTitle>MelodyMasters | 404</PageTitle>
         <div className="w-full h-[100vh] flex flex-col justify-center items-center">
           <h3 className="text-textH3 font-bold text-colorTertiary">
             Not Found!

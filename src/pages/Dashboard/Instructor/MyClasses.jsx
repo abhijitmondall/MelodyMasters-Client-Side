@@ -1,4 +1,5 @@
 import ClassCard from "../../../UI/ClassCard";
+import PageTitle from "../../../UI/PageTitle";
 import SectionTitle from "../../../UI/SectionTitle";
 import Spinner from "../../../UI/Spinner";
 import useAuth from "../../../hooks/useAuth";
@@ -11,6 +12,7 @@ const MyClasses = () => {
   const { classes } = data;
   return (
     <section className="w-full p-[5rem]">
+      <PageTitle>MelodyMasters | My Classes</PageTitle>
       <div className="mt-[3rem] w-full">
         <SectionTitle
           className={{ className: "bg-colorGreyLight2 text-textH5" }}
@@ -29,15 +31,19 @@ const MyClasses = () => {
         </div>
 
         <div className="grid grid-cols-2 gap-[3rem] items-center justify-items-center ">
-          {classes?.map((info) => (
-            <ClassCard
-              key={info._id}
-              classInfo={info}
-              options={{ update: true }}
-            >
-              Update
-            </ClassCard>
-          ))}
+          {loading ? (
+            <Spinner />
+          ) : (
+            classes?.map((info) => (
+              <ClassCard
+                key={info._id}
+                classInfo={info}
+                options={{ update: true }}
+              >
+                Update
+              </ClassCard>
+            ))
+          )}
         </div>
 
         {classes?.length === 0 && (
