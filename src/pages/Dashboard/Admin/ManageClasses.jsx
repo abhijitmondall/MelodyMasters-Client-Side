@@ -61,7 +61,7 @@ const ManageClasses = () => {
             ))
           : !loading && (
               <h2 className="text-textH2 text-center text-colorPrimary font-bold">
-                You did't selected any classes yet!
+                No Classes Found Yet!
               </h2>
             )}
       </div>

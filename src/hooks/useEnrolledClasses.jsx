@@ -15,6 +15,7 @@ const useEnrolledClasses = () => {
 
   useEffect(() => {
     (async () => {
+      if (!user?.email) return;
       const res = await axiosSecureFetch.get(
         `enrolledUsers?email=${user?.email}`
       );
@@ -28,7 +29,7 @@ const useEnrolledClasses = () => {
       }
       setLoading(false);
     })();
-  }, [isRefetch]);
+  }, [isRefetch, user?.email]);
 
   return {
     enrolledClasses,

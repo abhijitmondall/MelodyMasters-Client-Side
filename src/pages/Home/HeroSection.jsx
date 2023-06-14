@@ -7,6 +7,7 @@ import slide3 from "./../../assets/img/slide-3.jpeg";
 import { Link } from "react-router-dom";
 
 import "./HeroSection.css";
+import { motion } from "framer-motion";
 
 const HeroSection = () => {
   return (
@@ -26,7 +27,7 @@ const HeroSection = () => {
                 </p>
 
                 <div className="hero__btn">
-                  <Link to="/allToys">
+                  <Link to="/classes">
                     <span>Explore Our Programs</span>
                   </Link>
                 </div>
@@ -47,7 +48,7 @@ const HeroSection = () => {
                 </p>
 
                 <div className="hero__btn">
-                  <Link to="/allToys">
+                  <Link to="/instructors">
                     <span>Meet Our Instructors</span>
                   </Link>
                 </div>
@@ -68,7 +69,7 @@ const HeroSection = () => {
                 </p>
 
                 <div className="hero__btn">
-                  <Link to="/allToys">
+                  <Link to="/">
                     <span>Join Our Community</span>
                   </Link>
                 </div>

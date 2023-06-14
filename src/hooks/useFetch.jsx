@@ -11,12 +11,12 @@ const useFetch = (url) => {
   useEffect(() => {
     (async () => {
       const res = await axiosFetch.get(url);
-      if (res) {
+      if (res?.data) {
         setData(res?.data);
         setLoading(false);
       }
     })();
-  }, [user]);
+  }, [user?.email]);
 
   return { loading, data };
 };

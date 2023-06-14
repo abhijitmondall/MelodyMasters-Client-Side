@@ -103,7 +103,16 @@
     border-radius: 0.8rem;
     border: 1px solid #999 !important;
   }
+  .not-available {
+    color: #ccc !important;
+  }
 }
+
+.white {
+  color: #fff !important;
+}
+
+/* Stripe Card Styles */
 
 .StripeElement,
 .StripeElementIdeal,

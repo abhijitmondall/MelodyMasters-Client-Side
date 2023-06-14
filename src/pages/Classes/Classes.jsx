@@ -14,7 +14,7 @@ const Classes = () => {
     <section className="my-[9rem]">
       <div className="container">
         <SectionTitle>Explore All Classes</SectionTitle>
-        <div className="grid grid-cols-3 gap-[3.2rem]">
+        <div className="grid grid-cols-3 gap-[3.2rem] mt-[3rem]">
           {loading ? (
             <Spinner />
           ) : (

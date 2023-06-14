@@ -30,7 +30,7 @@ const useAxiosFetch = () => {
           error.response &&
           (error.response.status === 401 ||
             error.response.status === 403 ||
-            error.response.status === 400)
+            error.response.status === 403)
         ) {
           logout();
           navigate("/login");

@@ -19,7 +19,7 @@ const ManageClassesCard = ({ info, index, handleRefetch }) => {
     const denyMessage = e.target?.deny?.value;
 
     const res = await axiosSecureFetch.patch(`classes/${info?._id}`, {
-      status: "Deny",
+      status: "Denied",
       feedback: `${denyMessage}`,
     });
 
@@ -52,10 +52,10 @@ const ManageClassesCard = ({ info, index, handleRefetch }) => {
         {info?.status}
       </div>
       <button
-        disabled={info?.status === "Approved" || info?.status === "Deny"}
+        disabled={info?.status === "Approved" || info?.status === "Denied"}
         onClick={() => handleStatus(info?._id)}
         className={`${
-          info?.status === "Approved" || info?.status === "Deny"
+          info?.status === "Approved" || info?.status === "Denied"
             ? "disabled"
             : "btn btn-outline btn-accent text-textBody normal-case h-auto"
         } `}
@@ -71,12 +71,13 @@ const ManageClassesCard = ({ info, index, handleRefetch }) => {
           rows="5"
           placeholder="Please send reasonable feedback why this class has been denied (within 300 characters)"
           className="p-[1.2rem] outline-none border-[1px] rounded-[0.8rem]"
+          required
         ></textarea>
         <button
-          disabled={info?.status === "Deny" || info?.status === "Approved"}
+          disabled={info?.status === "Denied" || info?.status === "Approved"}
           type="submit"
           className={`${
-            info?.status === "Deny" || info?.status === "Approved"
+            info?.status === "Denied" || info?.status === "Approved"
               ? "disabled"
               : "btn btn-outline text-colorTertiary text-textBody normal-case h-auto"
           } `}

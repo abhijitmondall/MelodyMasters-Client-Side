@@ -13,12 +13,11 @@ const PopularClasses = () => {
 
   const { classes } = data;
 
-
   return (
     <section>
       <div className="container">
         <SectionTitle>Popular Classes</SectionTitle>
-        <div className="grid grid-cols-3 gap-[3.2rem]">
+        <div className="grid grid-cols-3 gap-[3.2rem] mt-[3rem]">
           {loading ? (
             <Spinner />
           ) : (

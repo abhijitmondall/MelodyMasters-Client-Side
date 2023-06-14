@@ -5,9 +5,10 @@ import StudentMenu from "./Student/StudentMenu";
 import useUsers from "../../hooks/useUsers";
 import InstructorMenu from "./Instructor/InstructorMenu";
 import AdminMenu from "./Admin/AdminMenu";
+import Spinner from "../../UI/Spinner";
 
 const DashboardMenu = () => {
-  const { users } = useUsers();
+  const { users, loading } = useUsers();
 
   return (
     <section className="w-full bg-colorSecondary p-[1.2rem] rounded-l-[2rem]">
@@ -33,6 +34,7 @@ const DashboardMenu = () => {
             </NavLink>
           </li>
 
+          {loading && <Spinner />}
           {users?.role === "Student" && <StudentMenu />}
           {users?.role === "Instructor" && <InstructorMenu />}
           {users?.role === "Admin" && <AdminMenu />}

@@ -32,6 +32,7 @@ const ClassCard = ({
     classImage,
     className,
     instructorName,
+    instructorEmail,
     instructorPhoto,
     price,
     availableSeats,
@@ -44,7 +45,7 @@ const ClassCard = ({
   const { user } = useAuth();
   const navigate = useNavigate();
 
-  const handleSelectedBTN = async (info) => {
+  const handleSelectedBTN = async () => {
     if (options?.update) {
       // TODO: handle Update the instructors class
       console.log("will be update in future");
@@ -60,11 +61,14 @@ const ClassCard = ({
         return navigate("/login", { replace: true });
       }
 
-      const userEmail = user?.email;
-      const selectedClass = { email: userEmail, ...info };
-
       const { data } = await axiosSecureFetch.post("selectedClasses", {
-        ...selectedClass,
+        classID: _id,
+        instructorEmail,
+        userEmail: user?.email,
+        classImage,
+        className,
+        price,
+        enrolledStudents,
       });
 
       if (data) {
@@ -117,15 +121,7 @@ const ClassCard = ({
               </div>
             </div>
             <button
-              onClick={() =>
-                handleSelectedBTN({
-                  classID: _id,
-                  classImage,
-                  className,
-                  price,
-                  enrolledStudents,
-                })
-              }
+              onClick={handleSelectedBTN}
               disabled={
                 users?.role === "Admin" ||
                 (users?.role === "Instructor" && !options) ||

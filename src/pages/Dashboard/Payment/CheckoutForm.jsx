@@ -6,6 +6,7 @@ import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
 import useSelectedClasses from "../../../hooks/useSelectedClasses";
 import { useNavigate } from "react-router-dom";
+import useUsers from "../../../hooks/useUsers";
 
 const CheckoutForm = () => {
   const [cardError, setCardError] = useState("");
@@ -19,6 +20,7 @@ const CheckoutForm = () => {
   const { refetch } = useSelectedClasses();
 
   const { user } = useAuth();
+  const { users } = useUsers();
 
   const stripe = useStripe();
   const elements = useElements();
@@ -100,6 +102,16 @@ const CheckoutForm = () => {
         await axiosSecureFetch.patch(`classes/${info?.info?.classID}`, {
           enrolledStudents: newData,
         });
+
+        // Update Enrolled students and Classes info under the Instructor
+        if (users && res) {
+          const studentsUpdated = parseInt(users?.students + 1);
+
+          await axiosSecureFetch.patch(
+            `users/user-basic-update/${info?.info?.instructorEmail}`,
+            { students: studentsUpdated }
+          );
+        }
 
         // Delete The Selected Class
         const res2 = await axiosSecureFetch.delete(

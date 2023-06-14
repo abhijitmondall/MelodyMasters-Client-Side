@@ -7,9 +7,12 @@ import {
 import logo from "./../assets/MelodyMasters.gif";
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+import { CgDarkMode } from "react-icons/cg";
+import useTheme from "../hooks/useTheme";
 
 const Header = () => {
   const { user, logout } = useAuth();
+  const { handleTheme } = useTheme();
 
   const logoutHandler = () => {
     try {
@@ -114,6 +117,16 @@ const Header = () => {
           </ul>
         </div>
         <div className="navbar-end">
+          <div className="mr-[3rem] mt-[.7rem]">
+            <button
+              onClick={handleTheme}
+              className="text-textH2"
+              title="Change Theme Mode!"
+            >
+              <CgDarkMode />
+            </button>
+          </div>
+
           {user && (
             <div className="header__user-wrap flex items-center gap-3">
               <img

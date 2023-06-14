@@ -11,7 +11,7 @@ const useSelectedClasses = () => {
 
     queryFn: async () => {
       const res = await axiosSecureFetch(
-        `selectedClasses?email=${user?.email}`
+        `selectedClasses?userEmail=${user?.email}`
       );
       if (!res) throw new Error(res.message);
       return res;
