@@ -22,7 +22,7 @@ const useEnrolledClasses = () => {
       if (res) {
         const newData = res.data?.data?.enrolledUsers.map(async (el) => {
           const res2 = await axiosSecureFetch.get(`/classes/${el?.classID}`);
-          return res2.data.class;
+          return res2.data?.class;
         });
         const classes = await Promise.all(newData);
         setEnrolledClasses(classes);
