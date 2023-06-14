@@ -13,7 +13,7 @@ const HeroSection = () => {
   return (
     <section className="mb-[20rem]">
       <div className="h-[57rem]">
-        <Carousel>
+        <Carousel swipeable={false}>
           <div className="relative hero__slide">
             <img src={slide1} alt="" className="hero__img" />
 

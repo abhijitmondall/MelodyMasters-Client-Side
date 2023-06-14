@@ -23,10 +23,10 @@ const Footer = () => {
               <h5>Useful Links</h5>
 
               <span>
-                <Link to="/allToys">Shop</Link>
+                <Link to="/classes">Classes</Link>
               </span>
               <span>
-                <Link to="/blogs">Blogs</Link>
+                <Link to="/instructors">Instructors</Link>
               </span>
               <span>
                 <Link to="/register">Register</Link>

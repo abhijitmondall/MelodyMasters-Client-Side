@@ -28,7 +28,9 @@ const Header = () => {
         <li>
           <NavLink
             to="/"
-            className={({ isActive }) => (isActive ? "text-colorPrimary" : "")}
+            className={({ isActive }) =>
+              isActive ? "text-colorPrimary text-textBody" : "text-textBody"
+            }
           >
             Home
           </NavLink>
@@ -36,7 +38,9 @@ const Header = () => {
         <li>
           <NavLink
             to="/instructors"
-            className={({ isActive }) => (isActive ? "text-colorPrimary" : "")}
+            className={({ isActive }) =>
+              isActive ? "text-colorPrimary text-textBody " : "text-textBody"
+            }
           >
             Instructors
           </NavLink>
@@ -44,7 +48,9 @@ const Header = () => {
         <li>
           <NavLink
             to="/classes"
-            className={({ isActive }) => (isActive ? "text-colorPrimary" : "")}
+            className={({ isActive }) =>
+              isActive ? "text-colorPrimary text-textBody" : "text-textBody"
+            }
           >
             Classes
           </NavLink>
@@ -80,13 +86,13 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div className="container navbar bg-base-100 ">
-        <div className="navbar-start">
-          <div className="dropdown">
+      <div className="container navbar bg-base-100">
+        <div className="navbar-start text-textBody">
+          <div className="dropdown z-[9999]">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
+                className="h-[2.5rem] w-[2.5rem]"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"

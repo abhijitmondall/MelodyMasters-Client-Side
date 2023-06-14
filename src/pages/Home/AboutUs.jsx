@@ -4,7 +4,7 @@ import { BsFillCheckCircleFill } from "react-icons/bs";
 const AboutUs = () => {
   return (
     <section className="container">
-      <div className="w-[90%] flex mx-auto mb-[9rem] gap-5">
+      <div className="w-[90%] flex md:flex-row flex-col mx-auto mb-[9rem] gap-5">
         <div>
           <h2 className="text-textH2 text-colorPrimary mt-[4px] font-bold uppercase">
             MelodyMasters: Unleash Your Musical Potential

@@ -10,7 +10,7 @@ const PopularInstructors = () => {
     <section className="my-[9rem]">
       <div className="container">
         <SectionTitle>Popular Instructors</SectionTitle>
-        <div className="grid grid-cols-3 gap-[3.2rem] mt-[3rem]">
+        <div className="grid items-center md:grid-cols-3 gap-[3.2rem] mt-[3rem]">
           {instructors?.map((instructor) => (
             <InstructorCard key={instructor._id} instructorInfo={instructor} />
           ))}
