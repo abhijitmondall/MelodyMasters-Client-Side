@@ -38,7 +38,7 @@ const ManageUsers = () => {
           Manage Users
         </SectionTitle>
       </div>
-      <div className="max-w-[100rem] flex flex-col gap-[1.2rem]">
+      <div className="flex flex-col gap-[1.2rem]">
         <div className="grid grid-cols-max-7 items-center gap-[1.6rem] border-b-[1px] p-[1.6rem] text-center bg-colorGreyLight3">
           <div>#</div>
           <div>User Img</div>

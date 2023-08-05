@@ -66,7 +66,7 @@ const ManageClassesCard = ({ info, index, handleRefetch }) => {
         <textarea
           name="deny"
           id=""
-          cols="16"
+          cols="30"
           maxLength="300"
           rows="5"
           placeholder="Please send reasonable feedback why this class has been denied (within 300 characters)"

@@ -31,7 +31,7 @@ const ManageUserCard = ({ info, index, handleRefetch }) => {
       <img
         src={info?.photo}
         alt={info?.name}
-        className="w-[100%] rounded-[.8rem]"
+        className="w-[80%] rounded-[.8rem]"
       />
       <div>{info?.name}</div>
       <div>{info?.email}</div>

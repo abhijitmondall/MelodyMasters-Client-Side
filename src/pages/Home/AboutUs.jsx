@@ -1,5 +1,6 @@
+import { Link } from "react-router-dom/dist";
 import kidsIMG from "./../../assets/img/music-learning-kids.jpeg";
-import { BsFillCheckCircleFill } from "react-icons/bs";
+import { BsFillCheckCircleFill, BsArrowUpRight } from "react-icons/bs";
 
 const AboutUs = () => {
   return (
@@ -63,9 +64,11 @@ const AboutUs = () => {
             </li>
           </ul>
 
-          <button className="btn text-white btn-accent text-textH6 normal-case py-4 px-10 mt-10 h-auto">
-            Learn More
-          </button>
+          <Link to="/register">
+            <button className="btn text-white btn-accent text-textH6 normal-case py-4 px-10 mt-10 h-auto">
+              Register Now <BsArrowUpRight />
+            </button>
+          </Link>
         </div>
         <div>
           <img

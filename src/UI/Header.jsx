@@ -7,7 +7,7 @@ import {
 import logo from "./../assets/MelodyMasters.gif";
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
-import { CgDarkMode } from "react-icons/cg";
+import { BiSun } from "react-icons/bi";
 import useTheme from "../hooks/useTheme";
 
 const Header = () => {
@@ -72,7 +72,7 @@ const Header = () => {
   };
 
   return (
-    <header>
+    <header className="border-b border-[#ccc]">
       <div className="bg-colorSecondary p-[1rem] text-teal-50">
         <div className="container flex justify-between ">
           <div className="flex gap-10">
@@ -81,7 +81,9 @@ const Header = () => {
             <FaPinterest />
             <FaInstagram />
           </div>
-          <div>
+          <div className="text-[1.4rem] flex items-center gap-[1.8rem]">
+            <p>+8801985412273</p>
+            <p>|</p>
             <p>admin@gmail.com</p>
           </div>
         </div>
@@ -117,19 +119,19 @@ const Header = () => {
             <img src={logo} alt="MelodyMasters" className="w-full" />
           </figure>
         </div>
-        <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 text-textH6">
+        <div className="navbar-center w-[70%] justify-end hidden lg:flex">
+          <ul className="menu menu-horizontal gap-[1.6rem] px-1 text-textH6 main-nav">
             {listItems()}
           </ul>
         </div>
-        <div className="navbar-end">
+        <div className="navbar-end ml-[1.6rem] w-auto">
           <div className="mr-[3rem] mt-[.7rem]">
             <button
               onClick={handleTheme}
               className="text-textH2"
               title="Change Theme Mode!"
             >
-              <CgDarkMode />
+              <BiSun />
             </button>
           </div>
 

@@ -16,7 +16,7 @@ const Classes = () => {
       <PageTitle>MelodyMasters | Classes</PageTitle>
       <div className="container">
         <SectionTitle>Explore All Classes</SectionTitle>
-        <div className="grid grid-cols-3 gap-[3.2rem] mt-[3rem]">
+        <div className="grid grid-cols-4 gap-[3.2rem] mt-[3rem]">
           {loading ? (
             <Spinner />
           ) : (

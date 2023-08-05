@@ -83,7 +83,7 @@ const ClassCard = ({
   return (
     <>
       <motion.div
-        className="card w-full glass text-textBody"
+        className="card w-full glass text-textBody bg-[#ccc]"
         whileHover={{ scale: [null, 1.1, 1.1] }}
         transition={{ duration: 0.4 }}
       >
@@ -91,7 +91,7 @@ const ClassCard = ({
           <img
             src={classImage}
             alt={className}
-            className="w-full h-[25rem] object-cover"
+            className="w-full h-[18rem] object-cover"
           />
         </figure>
         <div className="card-body px-0">
@@ -133,7 +133,7 @@ const ClassCard = ({
                 isSelected ||
                 (isEnrolled && !options)
               }
-              className="btn py-[1.4rem] bg-colorPrimary text-white w-full h-auto text-textBody"
+              className="btn py-[1.4rem] bg-colorPrimary hover:text-[#18B1A2] text-white w-full h-auto text-textBody border-none"
             >
               {isEnrolled && children === "Select"
                 ? (children = "Enrolled")

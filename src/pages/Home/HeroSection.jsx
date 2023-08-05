@@ -1,19 +1,22 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-
 import slide1 from "./../../assets/img/slide-1.jpeg";
 import slide2 from "./../../assets/img/slide-2.jpeg";
 import slide3 from "./../../assets/img/slide-3.jpeg";
 import { Link } from "react-router-dom";
-
 import "./HeroSection.css";
-import { motion } from "framer-motion";
 
 const HeroSection = () => {
   return (
-    <section className="mb-[20rem]">
+    <section className="mb-[15rem]">
       <div className="h-[57rem]">
-        <Carousel swipeable={false}>
+        <Carousel
+          swipeable={false}
+          autoPlay={true}
+          infiniteLoop={true}
+          stopOnHover={true}
+          interval={5000}
+        >
           <div className="relative hero__slide">
             <img src={slide1} alt="" className="hero__img" />
 
@@ -49,7 +52,7 @@ const HeroSection = () => {
 
                 <div className="hero__btn">
                   <Link to="/instructors">
-                    <span>Meet Our Instructors</span>
+                    <span>Meet Our Instructors </span>
                   </Link>
                 </div>
               </div>

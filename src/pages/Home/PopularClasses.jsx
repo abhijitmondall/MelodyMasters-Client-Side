@@ -8,7 +8,7 @@ const PopularClasses = () => {
   const { data: selectedClasses = [], refetch } = useSelectedClasses();
 
   const { data, loading } = useFetch(
-    "classes?limit=6&sort=-enrolledStudents&status=Approved"
+    "classes?limit=8&sort=-enrolledStudents&status=Approved"
   );
 
   const { classes } = data;
@@ -16,8 +16,8 @@ const PopularClasses = () => {
   return (
     <section>
       <div className="container">
-        <SectionTitle>Popular Classes</SectionTitle>
-        <div className="grid items-center md:grid-cols-3 gap-[3.2rem] mt-[3rem]">
+        <SectionTitle>Our Popular Classes</SectionTitle>
+        <div className="grid items-center md:grid-cols-4 gap-[3.2rem] mt-[3rem]">
           {loading ? (
             <Spinner />
           ) : (

@@ -11,7 +11,7 @@ const DashboardProfile = () => {
         <img
           src={user.photoURL}
           alt=""
-          className="w-[80%] mx-auto rounded-[50%] object-cover"
+          className="w-[70%] mx-auto rounded-[50%] object-cover"
         />
         <h2 className="text-textH5 font-bold text-colorPrimary">
           {user.displayName}

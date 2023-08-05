@@ -90,7 +90,7 @@ const Register = () => {
   return (
     <section>
       <PageTitle>MelodyMasters | Register</PageTitle>
-      <div className="hero min-h-screen py-[3rem] bg-base-200">
+      <div className="hero py-[6rem] bg-base-200">
         {user ? (
           <div className="flex flex-col text-textH1 text-colorPrimary justify-center items-center">
             You have already registered!

@@ -95,16 +95,22 @@
   }
 
   .disabled {
+    display: block;
     background-color: #f0eeee !important;
     color: #ccc !important;
     cursor: not-allowed !important;
     opacity: 0.5;
     padding: 0.4rem 1rem;
+    margin: 0 auto;
     border-radius: 0.8rem;
     border: 1px solid #999 !important;
   }
   .not-available {
     color: #ccc !important;
+  }
+
+  .main-nav li a {
+    font-size: 2rem;
   }
 }
 
@@ -112,6 +118,9 @@
   color: #fff !important;
 }
 
+.bg {
+  background-color: black !important;
+}
 /* Stripe Card Styles */
 
 .StripeElement,
@@ -150,6 +159,33 @@
 .StripeElementEPS,
 .StripeElementFpx {
   padding: 0;
+}
+
+/* Swiper */
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  color: #fff;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 9rem 12rem;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 12rem;
+  height: 12rem;
+  border-radius: 50%;
+  margin: 0 auto;
+  object-fit: cover;
+  margin-bottom: 3.2rem;
 }
 
 ::-webkit-scrollbar {

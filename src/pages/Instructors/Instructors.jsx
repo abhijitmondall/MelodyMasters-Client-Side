@@ -13,7 +13,7 @@ const Instructors = () => {
       <PageTitle>MelodyMasters | Instructors</PageTitle>
       <div className="container">
         <SectionTitle>All Instructors</SectionTitle>
-        <div className="grid grid-cols-3 gap-[3.2rem]">
+        <div className="grid grid-cols-4 gap-[3.2rem]">
           {loading ? (
             <Spinner />
           ) : (
